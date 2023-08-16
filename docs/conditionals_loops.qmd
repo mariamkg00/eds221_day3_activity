@@ -1,0 +1,69 @@
+---
+title: "EDS 221 Day 3 Activity"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+```
+
+### Part 1 Conditional statements and for loops 
+
+```{r}
+#Task 1
+#Conditional statements
+pm2_5 <- 48
+
+if(pm2_5 < 100){
+  print('Low to moderate risk')
+} else if(pm2_5 >= 100 & pm2_5 <= 150){
+  print('Unhealthy for sensitive groups')
+    } else if(pm2_5 >= 150){
+      print('Heath risk present')
+    }
+```
+
+```{r}
+#Task 2
+
+species <- 'blue whale'
+
+if (str_detect(species, 'blue whale')){
+  print("You found a blue whale!")
+} 
+```
+
+```{r}
+#Task 3
+base_burrito <- 6.50
+main_ingredient <- "chicken"
+
+if (main_ingredient == 'veggie'){
+  print('6.50')
+}else if (main_ingredient == "chicken"){
+  print('9.50')
+}else if (main_ingredient == 'steak'){
+  print('9.75')
+}
+```
+
+## For loops
+
+```{r}
+#Task 4
+fish <- c(8,10,12,23)
+total_fish <- sum(fish)
+for (i in seq_along(fish)){
+  fish_proportions = (fish[i]/total_fish)
+  print(fish_proportions)
+}
+```
+
+```{r}
+#Task 5
+#month.name 
+for (month in seq_along(month.name)) {
+  print(paste(month.name[month],'is month', month))
+}
+```

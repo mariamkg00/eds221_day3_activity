@@ -1,0 +1,47 @@
+---
+title: "Toolik Lake Chemistry"
+format: html
+editor: visual
+---
+
+### Part 2 Real data
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+```{r}
+toolik_biochem <- read_csv(here("data","2011_Kling_Akchem.csv"), na = ".") %>% 
+  janitor::clean_names()
+
+toolik_biochem
+
+```
+
+```{r}
+#Create a subset of the data that contains only observations from the “Toolik Inlet” site, and that only contains the variables (columns) for pH, dissolved organic carbon (DOC), and total dissolved nitrogen (TDN) (hint: see dplyr::select()). Store this subset as inlet_biochem. Make sure to look at the subset you’ve created.
+
+inlet_biochem <- toolik_biochem %>% 
+  select(p_h, doc_u_m, tdn_u_m)
+inlet_biochem
+```
+
+```{r}
+for(i in seq_along(inlet_biochem)) {
+  mean_biochem <- mean(inlet_biochem[[i]], na.rm= TRUE)
+  print(mean_biochem)
+}
+```
+
+```{r}
+#second way
+mean_biochem2 <- apply(inlet_biochem, 2, mean, na.rm = TRUE)
+mean_biochem2
+```
+
+```{r}
+#third way
+mean_biochem3 <- mutate(across(c(inlet_b, )
+```
